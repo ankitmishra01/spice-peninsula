@@ -29,12 +29,13 @@
   </head>
   <body>
     <div class="scroll-progress" aria-hidden="true"></div>
+
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand" href="#home" aria-label="The Spice Peninsula home">
         <span class="brand-mark">SP</span>
         <span>
           <strong>The Spice Peninsula</strong>
-          <small>Indian-Cape Town Fusion</small>
+          <small>V&A Waterfront</small>
         </span>
       </a>
 
@@ -45,121 +46,105 @@
       </button>
 
       <nav class="site-nav" aria-label="Main menu">
-        <a href="#story">Story</a>
-        <a href="#cape-town">Cape Town</a>
         <a href="#menu">Menu</a>
-        <a href="#experience">Experience</a>
+        <a href="#story">Story</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#visit">Visit</a>
         <a class="nav-cta" href="#booking">Book a Table</a>
       </nav>
     </header>
 
     <main id="home">
       <section class="hero">
-        <div class="hero-overlay"></div>
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-shade" aria-hidden="true"></div>
+
         <div class="hero-content reveal">
-          <p class="eyebrow">V&A Waterfront, Cape Town</p>
-          <h1>The Spice Peninsula</h1>
+          <p class="eyebrow">Indian-Cape Town Fusion Restaurant</p>
+          <h1>Keralan spice. Cape Town fire. Dinner on the waterfront.</h1>
           <p class="hero-copy">
-            Keralan spice-craft meets Cape Town soul in a waterfront dining room built for
-            smoky curries, ocean air, and generous tables.
+            A polished V&A Waterfront dining room for masala kingklip, bobotie samosas,
+            Karoo lamb rogan josh, Cape wines, and golden-hour tables.
           </p>
+
           <div class="hero-actions">
-            <a class="button primary" href="#booking">Reserve Tonight</a>
-            <a class="button secondary" href="#menu">View Fusion Menu</a>
+            <a class="button primary" href="#booking">Book Tonight</a>
+            <a class="button secondary" href="#menu">See Signature Menu</a>
           </div>
+
+          <dl class="hero-facts" aria-label="Restaurant highlights">
+            <div>
+              <dt>Open</dt>
+              <dd>Tue-Sun, 12:00-22:30</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>V&A Waterfront, Cape Town</dd>
+            </div>
+            <div>
+              <dt>Best for</dt>
+              <dd>Date nights, groups, private tastings</dd>
+            </div>
+          </dl>
         </div>
-        <div class="hero-visual reveal" aria-label="Animated 3D spice and Table Mountain scene">
-          <canvas id="spiceScene"></canvas>
-          <div class="hero-card">
-            <span>Tonight's fire</span>
-            <strong>Kingklip, saffron coconut, charred lime</strong>
-          </div>
-        </div>
+
+        <aside class="reservation-card reveal" id="booking" aria-label="Reservation request">
+          <canvas id="spiceAura" aria-hidden="true"></canvas>
+          <p class="eyebrow">Reservations</p>
+          <h2>Reserve a table</h2>
+          <form class="booking-form">
+            <label>
+              <span>Date</span>
+              <input type="date" name="date" required />
+            </label>
+            <label>
+              <span>Guests</span>
+              <select name="guests">
+                <option>2 guests</option>
+                <option>4 guests</option>
+                <option>6 guests</option>
+                <option>8 guests</option>
+              </select>
+            </label>
+            <label>
+              <span>Time</span>
+              <select name="time">
+                <option>18:30</option>
+                <option>19:00</option>
+                <option>19:30</option>
+                <option>20:00</option>
+              </select>
+            </label>
+            <p class="booking-note" aria-live="polite">Prime waterfront tables are open for 19:00.</p>
+            <a class="button primary booking-button" href="mailto:bookings@spicepeninsula.example">
+              Request Table
+            </a>
+          </form>
+        </aside>
       </section>
 
-      <section class="intro reveal" aria-label="Restaurant highlights">
+      <section class="trust-strip reveal" aria-label="Dining highlights">
         <div>
-          <span class="stat">30+</span>
-          <p>Years of spice sourcing from Kerala to the Cape</p>
-        </div>
-        <div>
-          <span class="stat">ZAR</span>
-          <p>Seasonal South African produce, priced for waterfront evenings</p>
+          <strong>4.8 guest rating</strong>
+          <span>For service, spice balance, and waterfront atmosphere</span>
         </div>
         <div>
-          <span class="stat">7pm</span>
-          <p>Golden-hour tables with Table Mountain views</p>
+          <strong>Signature tasting menu</strong>
+          <span>Five courses with South African wine or zero-proof pairings</span>
         </div>
-      </section>
-
-      <section class="section split" id="story">
-        <div class="section-copy reveal">
-          <p class="eyebrow">About Us</p>
-          <h2>From Kochi's spice docks to the Mother City.</h2>
-          <p>
-            Arjun Menon arrived in Cape Town in 1994 with a trunk of cardamom, pepper, and
-            handwritten family recipes from Kerala's coast. At first, he traded spices to
-            neighbourhood cooks, hotel kitchens, and curious chefs who wanted heat with history.
-          </p>
-          <p>
-            The Spice Peninsula is the restaurant that grew from those conversations. Arjun's
-            kitchen folds Indian spice-craft into South African ingredients: kingklip from cold
-            Atlantic waters, Karoo lamb, Cape Malay aromatics, and the bright produce of the
-            peninsula. The result is food that feels both travelled and rooted.
-          </p>
-        </div>
-        <div class="story-panel reveal" aria-label="Brand palette inspiration">
-          <span>Saffron</span>
-          <span>Teal</span>
-          <span>Bo-Kaap Pink</span>
-          <span>Slate</span>
-        </div>
-      </section>
-
-      <section class="section cape-section" id="cape-town">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Cape Town On The Plate</p>
-          <h2>Waterfront air, Bo-Kaap colour, Table Mountain drama.</h2>
-        </div>
-
-        <div class="cape-gallery" aria-label="Cape Town image gallery">
-          <figure class="cape-photo large reveal">
-            <img
-              src="https://images.unsplash.com/photo-1430263517459-34119c5e8380?auto=format&fit=crop&w=1400&q=82"
-              alt="Table Mountain rising above Cape Town"
-            />
-            <figcaption>
-              <strong>Table Mountain Slate</strong>
-              <span>The quiet backbone of the dining room palette.</span>
-            </figcaption>
-          </figure>
-          <figure class="cape-photo reveal">
-            <img
-              src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=1100&q=82"
-              alt="Cape Town coastline with mountain views"
-            />
-            <figcaption>
-              <strong>Atlantic Heat</strong>
-              <span>Kingklip, curry leaf, and cold-water brightness.</span>
-            </figcaption>
-          </figure>
-          <figure class="cape-photo reveal">
-            <img
-              src="https://images.unsplash.com/photo-1663414227598-9d778b49d417?auto=format&fit=crop&w=1100&q=82"
-              alt="Colourful Bo-Kaap houses in Cape Town"
-            />
-            <figcaption>
-              <strong>Bo-Kaap Pink</strong>
-              <span>Cape Malay aromatics meeting Indian pastry and spice.</span>
-            </figcaption>
-          </figure>
+        <div>
+          <strong>Private dining</strong>
+          <span>Chef's table for 8-14 guests with Arjun's spice cellar</span>
         </div>
       </section>
 
       <section class="section menu-section" id="menu">
         <div class="section-heading reveal">
           <p class="eyebrow">Fusion Menu</p>
-          <h2>Signature plates with coastline, spice, and smoke.</h2>
+          <h2>Dishes guests actually come back for.</h2>
+          <p>
+            Built around South African produce, Keralan technique, and Cape Malay warmth.
+          </p>
         </div>
 
         <div class="menu-controls reveal" aria-label="Menu category filters">
@@ -171,94 +156,137 @@
 
         <div class="menu-grid">
           <article class="menu-card reveal" data-category="sea">
-            <div class="dish-topline">
-              <span>Ocean</span>
-              <strong>R245</strong>
+            <img
+              src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=900&q=82"
+              alt="A rich spiced Indian curry dish"
+            />
+            <div class="menu-card-body">
+              <div class="dish-topline">
+                <span>Ocean</span>
+                <strong>R245</strong>
+              </div>
+              <h3>Mother City Masala Fish</h3>
+              <p>Line-caught kingklip simmered in Keralan spices, coconut, curry leaf, and charred lime.</p>
             </div>
-            <h3>Mother City Masala Fish</h3>
-            <p>Line-caught kingklip simmered in Keralan spices, coconut, curry leaf, and charred lime.</p>
           </article>
           <article class="menu-card reveal" data-category="street">
-            <div class="dish-topline">
-              <span>Cape Malay</span>
-              <strong>R145</strong>
+            <img
+              src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=82"
+              alt="Crisp golden samosas served with chutney"
+            />
+            <div class="menu-card-body">
+              <div class="dish-topline">
+                <span>Cape Malay</span>
+                <strong>R145</strong>
+              </div>
+              <h3>Bobotie Samosas</h3>
+              <p>Fragrant Cape Malay mince folded into crisp Indian pastry with apricot chutney.</p>
             </div>
-            <h3>Bobotie Samosas</h3>
-            <p>Fragrant Cape Malay mince folded into crisp Indian pastry with apricot chutney.</p>
           </article>
           <article class="menu-card reveal" data-category="fire">
-            <div class="dish-topline">
-              <span>Karoo</span>
-              <strong>R285</strong>
+            <img
+              src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=900&q=82"
+              alt="Slow-cooked lamb curry in a dark bowl"
+            />
+            <div class="menu-card-body">
+              <div class="dish-topline">
+                <span>Karoo</span>
+                <strong>R285</strong>
+              </div>
+              <h3>Biltong Rogan Josh</h3>
+              <p>Slow-braised Karoo lamb with Kashmiri chilli, black cardamom, and smoky biltong infusions.</p>
             </div>
-            <h3>Biltong Rogan Josh</h3>
-            <p>Slow-braised Karoo lamb with Kashmiri chilli, black cardamom, and smoky biltong infusions.</p>
           </article>
         </div>
       </section>
 
-      <section class="section experience" id="experience">
-        <div class="experience-copy reveal">
-          <p class="eyebrow">The Room</p>
-          <h2>High-touch hospitality without the hush.</h2>
-          <p>
-            Expect polished service, vivid plates, and a room that carries the energy of Bo-Kaap
-            colour into a slate-toned waterfront setting. Come for a date, a family feast, or a
-            late business dinner that deserves better than beige.
-          </p>
+      <section class="section story-section" id="story">
+        <div class="story-image reveal">
+          <img
+            src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=1200&q=82"
+            alt="Cape Town coastline and mountain views"
+          />
         </div>
-        <div class="experience-list reveal">
-          <div>
-            <strong>Private spice tastings</strong>
-            <span>Guided by Arjun's cellar of masalas and single-origin pepper.</span>
-          </div>
-          <div>
-            <strong>Waterfront pairing menu</strong>
-            <span>South African wines, mango lassi spritzes, and zero-proof coolers.</span>
-          </div>
+        <div class="section-copy reveal">
+          <p class="eyebrow">About Us</p>
+          <h2>From Kochi's spice docks to the Mother City.</h2>
+          <p>
+            Arjun Menon arrived in Cape Town in 1994 with a trunk of cardamom, pepper,
+            and handwritten family recipes from Kerala's coast. He first traded spices
+            to neighbourhood cooks and hotel kitchens, then opened the restaurant those
+            conversations kept asking for.
+          </p>
+          <p>
+            Today his kitchen folds Indian spice-craft into South African ingredients:
+            kingklip from cold Atlantic waters, Karoo lamb, Cape Malay aromatics, and
+            bright peninsula produce.
+          </p>
         </div>
       </section>
 
-      <section class="booking reveal" id="booking">
-        <div>
-          <p class="eyebrow">Reservations</p>
-          <h2>Book the table before the saffron runs out.</h2>
-          <p>Open Tuesday to Sunday, 12:00-22:30. Waterfront dinner seating fills fastest after 18:30.</p>
+      <section class="section gallery-section" id="gallery">
+        <div class="section-heading reveal">
+          <p class="eyebrow">The Room</p>
+          <h2>A Cape Town night out, not a concept board.</h2>
         </div>
-        <form class="booking-form" aria-label="Reservation form">
-          <label>
-            <span>Date</span>
-            <input type="date" name="date" required />
-          </label>
-          <label>
-            <span>Guests</span>
-            <select name="guests">
-              <option>2 guests</option>
-              <option>4 guests</option>
-              <option>6 guests</option>
-              <option>8 guests</option>
-            </select>
-          </label>
-          <label>
-            <span>Time</span>
-            <select name="time">
-              <option>18:30</option>
-              <option>19:00</option>
-              <option>19:30</option>
-              <option>20:00</option>
-            </select>
-          </label>
-          <p class="booking-note" aria-live="polite">Prime waterfront tables are currently open for 19:00.</p>
-          <a class="button primary booking-button" href="mailto:bookings@spicepeninsula.example">
-            Request Table
-          </a>
-        </form>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item large reveal">
+            <img
+              src="https://images.unsplash.com/photo-1430263517459-34119c5e8380?auto=format&fit=crop&w=1300&q=82"
+              alt="Table Mountain rising above Cape Town"
+            />
+            <figcaption>Table Mountain views before dinner</figcaption>
+          </figure>
+          <figure class="gallery-item reveal">
+            <img
+              src="https://images.unsplash.com/photo-1663414227598-9d778b49d417?auto=format&fit=crop&w=1000&q=82"
+              alt="Colourful Bo-Kaap houses in Cape Town"
+            />
+            <figcaption>Bo-Kaap colour in the palette</figcaption>
+          </figure>
+          <figure class="gallery-item reveal">
+            <img
+              src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=1000&q=82"
+              alt="Indian flatbread and curry on a restaurant table"
+            />
+            <figcaption>Curries, breads, chutneys, and Cape wines</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section visit-section" id="visit">
+        <div class="visit-panel reveal">
+          <p class="eyebrow">Visit</p>
+          <h2>Find us at the V&A Waterfront.</h2>
+          <div class="visit-details">
+            <div>
+              <strong>Address</strong>
+              <span>Pierhead District, V&A Waterfront, Cape Town</span>
+            </div>
+            <div>
+              <strong>Hours</strong>
+              <span>Tuesday-Sunday, 12:00-22:30</span>
+            </div>
+            <div>
+              <strong>Contact</strong>
+              <a href="mailto:hello@spicepeninsula.example">hello@spicepeninsula.example</a>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal">
+          <span class="quote-mark">"</span>
+          <blockquote>
+            It tastes like Cape Town and Kerala finally sat at the same table.
+          </blockquote>
+          <cite>Weekend Table, Cape Town</cite>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <p>The Spice Peninsula, V&A Waterfront, Cape Town</p>
-      <a href="mailto:hello@spicepeninsula.example">hello@spicepeninsula.example</a>
+      <a href="#booking">Book a Table</a>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -288,7 +316,7 @@
             }
           });
         },
-        { threshold: 0.18 }
+        { threshold: 0.16 }
       );
 
       document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
@@ -325,70 +353,47 @@
       bookingForm.addEventListener("change", () => {
         const guests = bookingForm.elements.guests.value;
         const time = bookingForm.elements.time.value;
-        bookingNote.textContent = `${guests} at ${time}: we'll prepare a saffron-side table request.`;
+        bookingNote.textContent = `${guests} at ${time}: table request ready. We'll confirm by email.`;
       });
 
-      const canvas = document.querySelector("#spiceScene");
+      const canvas = document.querySelector("#spiceAura");
 
       if (window.THREE && canvas) {
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+        const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
         const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
         const group = new THREE.Group();
         const clock = new THREE.Clock();
 
         scene.add(group);
-        camera.position.set(0, 1.2, 7);
+        camera.position.set(0, 0, 6);
 
-        const saffron = new THREE.Color("#E28743");
-        const pink = new THREE.Color("#FF69B4");
-        const teal = new THREE.Color("#063970");
-        const slate = new THREE.Color("#2F4F4F");
+        const colors = ["#E28743", "#FF69B4", "#063970", "#fff8ef"];
+        const geometry = new THREE.SphereGeometry(0.07, 18, 18);
 
-        const mountainShape = new THREE.Shape();
-        mountainShape.moveTo(-2.8, -1.1);
-        mountainShape.lineTo(-1.45, 0.15);
-        mountainShape.lineTo(0.15, 0.28);
-        mountainShape.lineTo(1.2, 0.05);
-        mountainShape.lineTo(2.7, -1.1);
-        mountainShape.lineTo(-2.8, -1.1);
+        for (let index = 0; index < 54; index += 1) {
+          const material = new THREE.MeshStandardMaterial({
+            color: colors[index % colors.length],
+            roughness: 0.55,
+            metalness: 0.08
+          });
+          const spice = new THREE.Mesh(geometry, material);
+          const angle = (index / 54) * Math.PI * 2;
+          const radius = 1.3 + (index % 7) * 0.09;
 
-        const mountain = new THREE.Mesh(
-          new THREE.ExtrudeGeometry(mountainShape, { depth: 0.18, bevelEnabled: true, bevelSize: 0.03, bevelThickness: 0.04 }),
-          new THREE.MeshStandardMaterial({ color: slate, roughness: 0.45, metalness: 0.18 })
-        );
-        mountain.position.set(0, -0.25, 0);
-        mountain.rotation.x = -0.12;
-        group.add(mountain);
-
-        const orbitMaterial = new THREE.MeshStandardMaterial({ color: saffron, roughness: 0.35, metalness: 0.2 });
-        const pinkMaterial = new THREE.MeshStandardMaterial({ color: pink, roughness: 0.45, metalness: 0.08 });
-        const tealMaterial = new THREE.MeshStandardMaterial({ color: teal, roughness: 0.4, metalness: 0.16 });
-        const spiceGeometry = new THREE.SphereGeometry(0.12, 24, 24);
-
-        for (let index = 0; index < 42; index += 1) {
-          const angle = (index / 42) * Math.PI * 2;
-          const radius = 1.95 + Math.sin(index) * 0.22;
-          const material = index % 3 === 0 ? pinkMaterial : index % 3 === 1 ? orbitMaterial : tealMaterial;
-          const spice = new THREE.Mesh(spiceGeometry, material);
-
-          spice.position.set(Math.cos(angle) * radius, Math.sin(index * 1.8) * 0.38, Math.sin(angle) * radius);
-          spice.userData = { angle, radius, speed: 0.35 + (index % 5) * 0.025 };
+          spice.position.set(Math.cos(angle) * radius, Math.sin(angle * 1.6) * 0.42, Math.sin(angle) * radius);
+          spice.userData = { angle, radius, speed: 0.18 + (index % 4) * 0.025 };
           group.add(spice);
         }
 
-        scene.add(new THREE.AmbientLight(0xfff3df, 1.8));
+        scene.add(new THREE.AmbientLight(0xfff0de, 1.6));
 
-        const keyLight = new THREE.DirectionalLight(0xffffff, 2.1);
-        keyLight.position.set(2.8, 4, 3);
-        scene.add(keyLight);
-
-        const accentLight = new THREE.PointLight(0xff69b4, 1.4, 8);
-        accentLight.position.set(-2.5, 1.4, 2.4);
-        scene.add(accentLight);
+        const light = new THREE.PointLight(0xffd7a1, 1.8, 8);
+        light.position.set(2.6, 2, 3);
+        scene.add(light);
 
         const resizeScene = () => {
-          const { clientWidth, clientHeight } = canvas.parentElement;
+          const { clientWidth, clientHeight } = canvas;
           renderer.setSize(clientWidth, clientHeight, false);
           renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
           camera.aspect = clientWidth / clientHeight;
@@ -397,15 +402,13 @@
 
         const animateScene = () => {
           const elapsed = clock.getElapsedTime();
-          group.rotation.y = elapsed * 0.16;
-          group.rotation.x = Math.sin(elapsed * 0.45) * 0.06;
+          group.rotation.y = elapsed * 0.11;
+          group.rotation.x = Math.sin(elapsed * 0.3) * 0.08;
 
           group.children.forEach((child) => {
-            if (!child.userData.radius) return;
             const angle = child.userData.angle + elapsed * child.userData.speed;
             child.position.x = Math.cos(angle) * child.userData.radius;
             child.position.z = Math.sin(angle) * child.userData.radius;
-            child.position.y += Math.sin(elapsed + child.userData.angle) * 0.0018;
           });
 
           renderer.render(scene, camera);
