@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand" href="#home" aria-label="The Spice Peninsula home">
         <span class="brand-mark">SP</span>
@@ -45,6 +46,7 @@
 
       <nav class="site-nav" aria-label="Main menu">
         <a href="#story">Story</a>
+        <a href="#cape-town">Cape Town</a>
         <a href="#menu">Menu</a>
         <a href="#experience">Experience</a>
         <a class="nav-cta" href="#booking">Book a Table</a>
@@ -66,9 +68,12 @@
             <a class="button secondary" href="#menu">View Fusion Menu</a>
           </div>
         </div>
-        <div class="hero-card reveal">
-          <span>Tonight's fire</span>
-          <strong>Kingklip, saffron coconut, charred lime</strong>
+        <div class="hero-visual reveal" aria-label="Animated 3D spice and Table Mountain scene">
+          <canvas id="spiceScene"></canvas>
+          <div class="hero-card">
+            <span>Tonight's fire</span>
+            <strong>Kingklip, saffron coconut, charred lime</strong>
+          </div>
         </div>
       </section>
 
@@ -111,14 +116,61 @@
         </div>
       </section>
 
+      <section class="section cape-section" id="cape-town">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Cape Town On The Plate</p>
+          <h2>Waterfront air, Bo-Kaap colour, Table Mountain drama.</h2>
+        </div>
+
+        <div class="cape-gallery" aria-label="Cape Town image gallery">
+          <figure class="cape-photo large reveal">
+            <img
+              src="https://images.unsplash.com/photo-1430263517459-34119c5e8380?auto=format&fit=crop&w=1400&q=82"
+              alt="Table Mountain rising above Cape Town"
+            />
+            <figcaption>
+              <strong>Table Mountain Slate</strong>
+              <span>The quiet backbone of the dining room palette.</span>
+            </figcaption>
+          </figure>
+          <figure class="cape-photo reveal">
+            <img
+              src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=1100&q=82"
+              alt="Cape Town coastline with mountain views"
+            />
+            <figcaption>
+              <strong>Atlantic Heat</strong>
+              <span>Kingklip, curry leaf, and cold-water brightness.</span>
+            </figcaption>
+          </figure>
+          <figure class="cape-photo reveal">
+            <img
+              src="https://images.unsplash.com/photo-1663414227598-9d778b49d417?auto=format&fit=crop&w=1100&q=82"
+              alt="Colourful Bo-Kaap houses in Cape Town"
+            />
+            <figcaption>
+              <strong>Bo-Kaap Pink</strong>
+              <span>Cape Malay aromatics meeting Indian pastry and spice.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section class="section menu-section" id="menu">
         <div class="section-heading reveal">
           <p class="eyebrow">Fusion Menu</p>
           <h2>Signature plates with coastline, spice, and smoke.</h2>
         </div>
 
+        <div class="menu-controls reveal" aria-label="Menu category filters">
+          <button class="filter-button is-active" type="button" data-filter="all">All</button>
+          <button class="filter-button" type="button" data-filter="sea">Sea</button>
+          <button class="filter-button" type="button" data-filter="street">Street</button>
+          <button class="filter-button" type="button" data-filter="fire">Fire</button>
+        </div>
+
         <div class="menu-grid">
-          <article class="menu-card reveal">
+          <article class="menu-card reveal" data-category="sea">
             <div class="dish-topline">
               <span>Ocean</span>
               <strong>R245</strong>
@@ -126,7 +178,7 @@
             <h3>Mother City Masala Fish</h3>
             <p>Line-caught kingklip simmered in Keralan spices, coconut, curry leaf, and charred lime.</p>
           </article>
-          <article class="menu-card reveal">
+          <article class="menu-card reveal" data-category="street">
             <div class="dish-topline">
               <span>Cape Malay</span>
               <strong>R145</strong>
@@ -134,7 +186,7 @@
             <h3>Bobotie Samosas</h3>
             <p>Fragrant Cape Malay mince folded into crisp Indian pastry with apricot chutney.</p>
           </article>
-          <article class="menu-card reveal">
+          <article class="menu-card reveal" data-category="fire">
             <div class="dish-topline">
               <span>Karoo</span>
               <strong>R285</strong>
@@ -173,9 +225,34 @@
           <h2>Book the table before the saffron runs out.</h2>
           <p>Open Tuesday to Sunday, 12:00-22:30. Waterfront dinner seating fills fastest after 18:30.</p>
         </div>
-        <a class="button primary booking-button" href="mailto:bookings@spicepeninsula.example">
-          Book a Table
-        </a>
+        <form class="booking-form" aria-label="Reservation form">
+          <label>
+            <span>Date</span>
+            <input type="date" name="date" required />
+          </label>
+          <label>
+            <span>Guests</span>
+            <select name="guests">
+              <option>2 guests</option>
+              <option>4 guests</option>
+              <option>6 guests</option>
+              <option>8 guests</option>
+            </select>
+          </label>
+          <label>
+            <span>Time</span>
+            <select name="time">
+              <option>18:30</option>
+              <option>19:00</option>
+              <option>19:30</option>
+              <option>20:00</option>
+            </select>
+          </label>
+          <p class="booking-note" aria-live="polite">Prime waterfront tables are currently open for 19:00.</p>
+          <a class="button primary booking-button" href="mailto:bookings@spicepeninsula.example">
+            Request Table
+          </a>
+        </form>
       </section>
     </main>
 
@@ -184,9 +261,11 @@
       <a href="mailto:hello@spicepeninsula.example">hello@spicepeninsula.example</a>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
       const navToggle = document.querySelector(".nav-toggle");
       const siteNav = document.querySelector(".site-nav");
+      const progressBar = document.querySelector(".scroll-progress");
 
       navToggle.addEventListener("click", () => {
         const isOpen = navToggle.getAttribute("aria-expanded") === "true";
@@ -213,6 +292,130 @@
       );
 
       document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+      const updateScrollProgress = () => {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+        progressBar.style.transform = `scaleX(${progress})`;
+      };
+
+      window.addEventListener("scroll", updateScrollProgress, { passive: true });
+      updateScrollProgress();
+
+      const filterButtons = document.querySelectorAll(".filter-button");
+      const menuCards = document.querySelectorAll(".menu-card");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const filter = button.dataset.filter;
+
+          filterButtons.forEach((item) => item.classList.remove("is-active"));
+          button.classList.add("is-active");
+
+          menuCards.forEach((card) => {
+            const shouldShow = filter === "all" || card.dataset.category === filter;
+            card.classList.toggle("is-hidden", !shouldShow);
+          });
+        });
+      });
+
+      const bookingForm = document.querySelector(".booking-form");
+      const bookingNote = document.querySelector(".booking-note");
+
+      bookingForm.addEventListener("change", () => {
+        const guests = bookingForm.elements.guests.value;
+        const time = bookingForm.elements.time.value;
+        bookingNote.textContent = `${guests} at ${time}: we'll prepare a saffron-side table request.`;
+      });
+
+      const canvas = document.querySelector("#spiceScene");
+
+      if (window.THREE && canvas) {
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+        const group = new THREE.Group();
+        const clock = new THREE.Clock();
+
+        scene.add(group);
+        camera.position.set(0, 1.2, 7);
+
+        const saffron = new THREE.Color("#E28743");
+        const pink = new THREE.Color("#FF69B4");
+        const teal = new THREE.Color("#063970");
+        const slate = new THREE.Color("#2F4F4F");
+
+        const mountainShape = new THREE.Shape();
+        mountainShape.moveTo(-2.8, -1.1);
+        mountainShape.lineTo(-1.45, 0.15);
+        mountainShape.lineTo(0.15, 0.28);
+        mountainShape.lineTo(1.2, 0.05);
+        mountainShape.lineTo(2.7, -1.1);
+        mountainShape.lineTo(-2.8, -1.1);
+
+        const mountain = new THREE.Mesh(
+          new THREE.ExtrudeGeometry(mountainShape, { depth: 0.18, bevelEnabled: true, bevelSize: 0.03, bevelThickness: 0.04 }),
+          new THREE.MeshStandardMaterial({ color: slate, roughness: 0.45, metalness: 0.18 })
+        );
+        mountain.position.set(0, -0.25, 0);
+        mountain.rotation.x = -0.12;
+        group.add(mountain);
+
+        const orbitMaterial = new THREE.MeshStandardMaterial({ color: saffron, roughness: 0.35, metalness: 0.2 });
+        const pinkMaterial = new THREE.MeshStandardMaterial({ color: pink, roughness: 0.45, metalness: 0.08 });
+        const tealMaterial = new THREE.MeshStandardMaterial({ color: teal, roughness: 0.4, metalness: 0.16 });
+        const spiceGeometry = new THREE.SphereGeometry(0.12, 24, 24);
+
+        for (let index = 0; index < 42; index += 1) {
+          const angle = (index / 42) * Math.PI * 2;
+          const radius = 1.95 + Math.sin(index) * 0.22;
+          const material = index % 3 === 0 ? pinkMaterial : index % 3 === 1 ? orbitMaterial : tealMaterial;
+          const spice = new THREE.Mesh(spiceGeometry, material);
+
+          spice.position.set(Math.cos(angle) * radius, Math.sin(index * 1.8) * 0.38, Math.sin(angle) * radius);
+          spice.userData = { angle, radius, speed: 0.35 + (index % 5) * 0.025 };
+          group.add(spice);
+        }
+
+        scene.add(new THREE.AmbientLight(0xfff3df, 1.8));
+
+        const keyLight = new THREE.DirectionalLight(0xffffff, 2.1);
+        keyLight.position.set(2.8, 4, 3);
+        scene.add(keyLight);
+
+        const accentLight = new THREE.PointLight(0xff69b4, 1.4, 8);
+        accentLight.position.set(-2.5, 1.4, 2.4);
+        scene.add(accentLight);
+
+        const resizeScene = () => {
+          const { clientWidth, clientHeight } = canvas.parentElement;
+          renderer.setSize(clientWidth, clientHeight, false);
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+          camera.aspect = clientWidth / clientHeight;
+          camera.updateProjectionMatrix();
+        };
+
+        const animateScene = () => {
+          const elapsed = clock.getElapsedTime();
+          group.rotation.y = elapsed * 0.16;
+          group.rotation.x = Math.sin(elapsed * 0.45) * 0.06;
+
+          group.children.forEach((child) => {
+            if (!child.userData.radius) return;
+            const angle = child.userData.angle + elapsed * child.userData.speed;
+            child.position.x = Math.cos(angle) * child.userData.radius;
+            child.position.z = Math.sin(angle) * child.userData.radius;
+            child.position.y += Math.sin(elapsed + child.userData.angle) * 0.0018;
+          });
+
+          renderer.render(scene, camera);
+          requestAnimationFrame(animateScene);
+        };
+
+        resizeScene();
+        window.addEventListener("resize", resizeScene);
+        animateScene();
+      }
     </script>
   </body>
 </html>
